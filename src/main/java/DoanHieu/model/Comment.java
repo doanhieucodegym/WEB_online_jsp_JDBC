@@ -1,6 +1,6 @@
 package DoanHieu.model;
 
-public class Comment{
+public class Comment extends AbstractModel{
 		 private String content;
 		 private Long userId;
 		 private Long newId;

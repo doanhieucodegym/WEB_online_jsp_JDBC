@@ -6,6 +6,9 @@
 	
 	
 	<display-name>jdbc_web_online </display-name>
+	<listener>
+		<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+	</listener>
 	<!-- bo  lo -->
 	<filter>
 	<filter-name>sitemesh</filter-name>
@@ -15,7 +18,9 @@
 	<filter-name>sitemesh</filter-name>
 	<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+	<session-config>
+			<tracking-mode>COOKIE</tracking-mode>
+	</session-config>
 	<welcome-file-list>
 			<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

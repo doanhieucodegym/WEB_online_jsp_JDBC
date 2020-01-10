@@ -1,5 +1,17 @@
 package DoanHieu.dao.impl;
 
-public class NewDAO {
+import java.util.List;
+
+import DoanHieu.dao.INewDAO;
+import DoanHieu.mapper.NewMapper;
+import DoanHieu.model.NewModel;
+
+public class NewDAO extends AbstractDAO<NewModel> implements INewDAO{
+
+	@Override
+	public List<NewModel> findByCategoryId(Long categoryId) {
+		String sql ="select * from news where categoryid =?"; 
+		return query(sql, new NewMapper(), categoryId);
+	}
 
 }
