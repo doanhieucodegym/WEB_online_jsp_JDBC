@@ -40,7 +40,7 @@ public class NewDAO extends AbstractDAO<NewModel> implements INewDAO{
 				id= resultSet.getLong(1);
 			}
 			connection.commit();
-			return id;
+		return id;
 			
 		}catch(SQLException e) {
 			if(connection !=null) {
