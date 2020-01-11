@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DoanHieu.model.NewModel;
-import DoanHieu.model.UserModel;
 import DoanHieu.service.ICategoryService;
 import DoanHieu.service.INewService;
 
@@ -24,15 +22,6 @@ public class HomeController extends HttpServlet {
 	private INewService newService;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String title ="bai viết  7";
-		String content=" bìa viêt 7";
-		Long categoryId =2L;
-		NewModel newModel = new NewModel();
-		newModel.setTitle(title);
-		newModel.setContent(content);
-		newModel.setCategoryId(categoryId);
-		
-		newService.save(newModel);
 				
 		request.setAttribute("categories",categoryService.finAll());
 			
