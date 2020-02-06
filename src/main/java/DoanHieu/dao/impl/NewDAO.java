@@ -19,9 +19,14 @@ public class NewDAO extends AbstractDAO<NewModel> implements INewDAO{
 		
 			String sql ="insert into news(title, content ,categoryid) value(?, ?, ?)";
 			return insert(sql, newModel.getTitle(), newModel.getContent(), newModel.getCategoryId());
-		
-		
-		
+			
 	}
+
+	@Override
+	public void update(NewModel newModel) {	
+		String sql ="Delete from news where id=?";
+		update(sql,newModel.getId());	
+	}
+	
 
 }
