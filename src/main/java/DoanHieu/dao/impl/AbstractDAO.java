@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 		try {
 			connection =getConnection();
 			statement =connection.prepareStatement(sql);
-			// su  ly ham  set parameter()
+			// su  ly ham  set parameter()ham sư  ly tham so 
 			setParameter(statement,paramenters);
 			resultSet =statement.executeQuery();
 			while(resultSet.next()) {
@@ -62,27 +63,6 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 			}}catch(SQLException e) {}
 		
 		}
-	}
-
-	private void setParameter(PreparedStatement statement, Object... paramenters) {
-		try {
-			for(int i=0;i<paramenters.length;i++) {
-				Object paramenter = paramenters[i];
-				int index =i+1;
-				if(paramenter instanceof Long) {
-					statement.setLong(index,(Long) paramenter);
-				} else if(paramenter instanceof String ) {
-					statement.setString(index,(String) paramenter);
-				} else if(paramenter instanceof Integer) {
-					statement.setInt(index,(Integer)paramenter);
-				}else if(paramenter instanceof Timestamp) {
-					statement.setTimestamp(index, (Timestamp)paramenter);
-				}
-			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}
-		
 	}
 
 	@Override
@@ -162,5 +142,29 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 		
 		}	
 		return null;
+	}
+	//loi do sắp  xếp cái setParameter không đúng  
+	private void setParameter(PreparedStatement statement, Object... paramenters) {
+		try {
+			for(int i=0;i<paramenters.length;i++) {
+				Object paramenter = paramenters[i];
+				int index =i+1;
+				if(paramenter instanceof Long) {
+					statement.setLong(index,(Long) paramenter);
+				} else if(paramenter instanceof String ) {
+					statement.setString(index,(String) paramenter);
+				} else if(paramenter instanceof Integer) {
+					statement.setInt(index,(Integer)paramenter);
+				}else if(paramenter instanceof Timestamp) {
+					statement.setTimestamp(index, (Timestamp)paramenter);
+				 }
+				/*
+				 * else if(paramenter == null) { statement.setNull(index,Types.NULL); }
+				 */
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

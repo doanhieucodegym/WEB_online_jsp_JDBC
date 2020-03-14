@@ -9,7 +9,7 @@ public interface GenericDAO<T> {
 		<T>List<T> query(String sql, RowMapper<T> rowMapper ,Object ... paramenters);
 		//cap nhat và xoa 
 		void update(String sql ,Object ... parameters );
-		//them moi
+		//them moi 
 		Long insert (String sql, Object... parameters);
 		
 }

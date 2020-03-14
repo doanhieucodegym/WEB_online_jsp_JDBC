@@ -1,3 +1,8 @@
 eclipse.preferences.version=1
+encoding//src/main/java/DoanHieu/controller/admin/api/NewAPI.java=UTF-8
 encoding//src/main/java/DoanHieu/controller/web/HomeController.java=UTF-8
+encoding//src/main/java/DoanHieu/dao/impl/AbstractDAO.java=UTF-8
 encoding//src/main/java/DoanHieu/service/impl/CategoryService.java=UTF-8
+encoding//src/main/java/DoanHieu/service/impl/NewService.java=UTF-8
+encoding//src/main/java/utils/HttpUtil.java=UTF-8
+encoding/<project>=UTF-8
